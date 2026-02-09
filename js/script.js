@@ -155,6 +155,136 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- RENDER FUNCTIONS ---
+    function renderCard(item) {
+        // Different layout for Kost vs UMKM
+        const badgeColor = item.type === 'Kost'
+            ? (item.category === 'Putri' ? '#e84393' : item.category === 'Putra' ? '#0984e3' : '#636e72')
+            : (item.category === 'Makanan' ? '#e67e22' : '#27ae60');
+
+        const priceUnit = item.priceUnit ? item.priceUnit : '';
+        const badgesHtml = item.type === 'Kost'
+            ? `<span class="rooms-left">Sisa ${item.sisa} kamar</span>`
+            : `<span class="badge" style="background:#dff9fb; color:#130f40;"><i class="fa-solid fa-truck"></i> ${item.delivery}</span>`;
+
+        const card = document.createElement('div');
+        card.className = 'card';
+        // Link wrapper for the whole card to make it clickable
+        card.innerHTML = `
+            <a href="detail.html?id=${item.id}&type=${item.type}" style="text-decoration: none; color: inherit; display: block;">
+                <div class="card-image">
+                    <span class="tag" style="background:${badgeColor}">${item.category}</span>
+                    <img src="${item.images[0]}" alt="${item.name}">
+                    <div class="price-overlay">${item.price} ${priceUnit}</div>
+                </div>
+                <div class="card-body">
+                    <div class="card-tags">
+                       ${item.type === 'Kost' ? `<span class="badge" style="background:${badgeColor}20; color:${badgeColor}">${item.category}</span>` : ''} 
+                       ${badgesHtml}
+                    </div>
+                    <h3>${item.name}</h3>
+                    <p class="location"><i class="fa-solid fa-location-dot"></i> ${item.location}</p>
+                    <div class="facilities">
+                        ${item.facilities.slice(0, 2).map(f => `<span><i class="fa-solid fa-check"></i> ${f}</span>`).join('')}
+                    </div>
+                </div>
+            </a>
+        `;
+        return card;
+    }
+
+    // Render Kost
+    const kostContainer = document.querySelector('#rekomendasi .card-grid');
+    if (kostContainer) {
+        kostContainer.innerHTML = '';
+        kostData.forEach(item => kostContainer.appendChild(renderCard(item)));
+    }
+
+    // Render UMKM
+    const umkmContainer = document.getElementById('umkm-container');
+    if (umkmContainer) {
+        umkmContainer.innerHTML = '';
+        umkmDATA.forEach(item => umkmContainer.appendChild(renderCard(item)));
+    }
+
+    // --- DETAIL PAGE LOGIC ---
+    // Check if we are on the detail page
+    if (window.location.pathname.includes('detail.html')) {
+        const urlParams = new URLSearchParams(window.location.search);
+        const id = parseInt(urlParams.get('id'));
+        const type = urlParams.get('type');
+
+        const item = type === 'Kost'
+            ? kostData.find(k => k.id === id)
+            : umkmDATA.find(u => u.id === id);
+
+        if (item) {
+            // 1. Populate Text
+            document.title = `${item.name} - CariKos`;
+            document.getElementById('detail-breadcrumb').innerText = item.name;
+            document.getElementById('detail-title').innerText = item.name;
+            document.getElementById('detail-location').innerText = item.location;
+            document.getElementById('detail-price').innerText = item.price;
+            document.getElementById('detail-unit').innerText = item.priceUnit || '';
+            document.getElementById('detail-desc').innerText = item.desc;
+
+            const badge = document.getElementById('detail-badge');
+            badge.innerText = item.category;
+            // Set Badge Color
+            if (type === 'Kost') {
+                badge.style.background = item.category === 'Putri' ? '#e84393' : item.category === 'Putra' ? '#0984e3' : '#636e72';
+            } else {
+                badge.style.background = item.category === 'Makanan' ? '#e67e22' : '#27ae60';
+            }
+
+            // 2. Images
+            const mainImg = document.getElementById('detail-main-img');
+            const thumbContainer = document.getElementById('detail-thumbs');
+
+            // Set initial main image
+            mainImg.src = item.images[0];
+
+            // Generate Thumbnails
+            item.images.forEach((imgSrc, index) => {
+                const thumb = document.createElement('img');
+                thumb.src = imgSrc;
+                if (index === 0) thumb.classList.add('active');
+
+                thumb.addEventListener('click', () => {
+                    mainImg.src = imgSrc;
+                    // Update active state
+                    document.querySelectorAll('.thumb-grid img').forEach(img => img.classList.remove('active'));
+                    thumb.classList.add('active');
+                });
+                thumbContainer.appendChild(thumb);
+            });
+
+            // 3. Status / Info Badge (Right of Price)
+            const statusBadgeContainer = document.getElementById('detail-status-badge');
+            if (type === 'Kost') {
+                statusBadgeContainer.innerHTML = `<span class="badge" style="background:var(--secondary-color); color:#333; font-weight:bold;">Sisa ${item.sisa} Kamar</span>`;
+            } else {
+                statusBadgeContainer.innerHTML = `<span class="badge" style="background:#dff9fb; color:#130f40;"><i class="fa-solid fa-truck"></i> ${item.delivery}</span>`;
+            }
+
+            // 4. Facilities
+            const facContainer = document.getElementById('detail-facilities');
+            item.facilities.forEach(fac => {
+                const div = document.createElement('div');
+                div.className = 'facility-item';
+                div.innerHTML = `<i class="fa-solid fa-check-circle" style="color:var(--primary-color)"></i> ${fac}`;
+                facContainer.appendChild(div);
+            });
+
+            // 5. Contact Button
+            const waLink = `https://wa.me/628123456789?text=Halo, saya tertarik dengan ${item.name}`; // Mock number
+            document.getElementById('wa-button').href = waLink;
+
+        } else {
+            document.querySelector('.detail-layout').innerHTML = '<h2 style="text-align:center; grid-column: 1/-1;">Data tidak ditemukan :(</h2>';
+        }
+    }
+
     // --- Add UMKM Page Logic ---
     const umkmForm = document.getElementById('add-umkm-form');
     if (umkmForm) {
