@@ -160,30 +160,48 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: 1, type: 'Kost', category: 'Putri', name: 'Kost Alma Jetis', price: 'Rp2.000.000', priceUnit: '/ bulan',
             location: 'Jetis, Yogyakarta', sisa: 2, total: 10,
-            images: ['https://roomme-v2.s3.amazonaws.com/bd044158-963d-4c3e-8c66-8840d8794301_L.jpg', 'https://roomme-v2.s3.amazonaws.com/9553765e-2f88-444a-af27-9950664d0a2d_L.jpg'],
+            images: [
+                'https://images.unsplash.com/photo-1522771753033-6a586857f209?w=800&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1598928506311-c55ded91a20c?w=800&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1586023492125-27b2c045efd7?w=800&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1552321901-7009387c963c?w=800&auto=format&fit=crop'
+            ],
             facilities: ['WiFi', 'AC', 'Kloset Duduk', 'Parkir Motor'],
-            desc: 'Kost nyaman, aman, dan bersih. Lokasi strategis dekat kampus UGM.'
+            desc: 'Kost nyaman, aman, dan bersih. Lokasi strategis dekat kampus UGM. Lingkungan tenang cocok untuk belajar. Tersedia dapur umum dan ruang tamu bersama.'
         },
         {
             id: 2, type: 'Kost', category: 'Putra', name: 'Kost Murah Tipe 2', price: 'Rp850.000', priceUnit: '/ bulan',
             location: 'Gamping, Sleman', sisa: 5, total: 15,
-            images: ['https://static.mamikos.com/uploads/cache/data/style/2021-09-24/o80J51iR-540x720.jpg'],
+            images: [
+                'https://images.unsplash.com/photo-1555854877-bab0e564b8d5?w=800&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1505691938895-1758d7feb511?w=800&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1595526114035-0d45ed16cfbf?w=800&auto=format&fit=crop'
+            ],
             facilities: ['Kasur', 'Lemari', 'KM Dalam'],
-            desc: 'Kost murah meriah cocok untuk mahasiswa.'
+            desc: 'Kost murah meriah cocok untuk mahasiswa. Akses 24 jam. Bebas banjir.'
         },
         {
             id: 3, type: 'Kost', category: 'Campur', name: 'Kost Bale Executive', price: 'Rp4.050.000', priceUnit: '/ bulan',
             location: 'Mlati, Sleman', sisa: 1, total: 5,
-            images: ['https://static.mamikos.com/uploads/cache/data/style/2023-11-09/4Xn28Z4p-540x720.jpg'],
+            images: [
+                'https://images.unsplash.com/photo-1502672260266-1c1ef2d93688?w=800&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?w=800&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1484101403633-562f891dc89a?w=800&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1507089947368-19c1da97ee87?w=800&auto=format&fit=crop'
+            ],
             facilities: ['TV', 'AC', 'Water Heater', 'Parkir Mobil'],
-            desc: 'Fasilitas lengkap serasa hotel.'
+            desc: 'Fasilitas lengkap serasa hotel. Keamanan 24 jam dengan CCTV. Parkir luas.'
         },
         {
             id: 4, type: 'Kost', category: 'Putra', name: 'Kost Inthobi Tipe VVIP', price: 'Rp550.000', priceUnit: '/ bulan',
             location: 'Gamping, Sleman', sisa: 3, total: 8,
-            images: ['https://static.mamikos.com/uploads/cache/data/style/2022-07-28/a3j329z9-540x720.jpg'],
+            images: [
+                'https://images.unsplash.com/photo-1616486029423-aaa4789e8c9a?w=800&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1540518614846-7eded433c457?w=800&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1501183638710-841dd1904471?w=800&auto=format&fit=crop'
+            ],
             facilities: ['Kipas Angin', 'Kasur', 'Lemari'],
-            desc: 'Kost hemat budget dengan fasilitas standar yang memadai.'
+            desc: 'Kost hemat budget dengan fasilitas standar yang memadai. Dekat dengan warung makan dan masjid.'
         }
     ];
 
@@ -191,23 +209,35 @@ document.addEventListener('DOMContentLoaded', () => {
         {
             id: 101, type: 'UMKM', category: 'Makanan', name: 'Ayam Geprek Mas Budi', price: 'Rp15rb - 25rb', priceUnit: '',
             location: '50m dari Kost Alma', delivery: 'Bisa Diantar',
-            images: ['https://assets.unileversolutions.com/recipes-v2/218401.jpg', 'https://www.masakapahariini.com/wp-content/uploads/2019/11/ayam-geprek-1.jpg'],
+            images: [
+                'https://images.unsplash.com/photo-1626082927389-6cd097cdc6ec?w=800&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1504674900247-0877df9cc836?w=800&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1626082896492-766af4eb6501?w=800&auto=format&fit=crop'
+            ],
             facilities: ['Nasi Ayam', 'Es Teh', 'Level Pedas'],
-            desc: 'Ayam geprek crispy dengan sambal bawang yang nendang. Gratis es teh untuk pembelian paket.'
+            desc: 'Ayam geprek crispy dengan sambal bawang yang nendang. Gratis es teh untuk pembelian paket. Tersedia level pedas 0-10.'
         },
         {
             id: 102, type: 'UMKM', category: 'Minuman', name: 'Kopi Kenangan Mantan', price: 'Rp10rb - 15rb', priceUnit: '',
             location: 'Depan Gang', delivery: 'Ambil Sendiri',
-            images: ['https://asset.kompas.com/crops/O_KjJ_oE0U-A8GzQJ-A2OqM9J-0=/0x0:1000x667/750x500/data/photo/2020/06/17/5ee988d8b9d36.jpg'],
+            images: [
+                'https://images.unsplash.com/photo-1497935586351-b67a49e012bf?w=800&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1517701604599-bb29b5c7fa39?w=800&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1509042239860-f550ce710b93?w=800&auto=format&fit=crop'
+            ],
             facilities: ['Kopi Susu', 'Thai Tea', 'Toast'],
-            desc: 'Teman nugas malam hari. Buka sampai jam 12 malam.'
+            desc: 'Teman nugas malam hari. Buka sampai jam 12 malam. Menyediakan berbagai varian kopi dan non-kopi.'
         },
         {
             id: 103, type: 'UMKM', category: 'Bahan Pokok', name: 'Toko Kelontong Bu Siti', price: 'Lengkap', priceUnit: '',
             location: 'Sebelah Kost Putri', delivery: 'Ambil Sendiri',
-            images: ['https://asset.kompas.com/crops/Y5M1gk-u-Dqg2q_g0g2g0=/0x0:0x0/750x500/data/photo/2020/04/16/5e982c7e5b6c9.jpg'],
+            images: [
+                'https://images.unsplash.com/photo-1604719312566-b7cb0463ab18?w=800&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1583258292688-d0213dc5a3a8?w=800&auto=format&fit=crop',
+                'https://images.unsplash.com/photo-1578916171728-46686eac8d58?w=800&auto=format&fit=crop'
+            ],
             facilities: ['Beras', 'Telur', 'Minyak Goreng', 'Gas 3kg'],
-            desc: 'Menyediakan kebutuhan sehari-hari anak kost dengan harga terjangkau.'
+            desc: 'Menyediakan kebutuhan sehari-hari anak kost dengan harga terjangkau. Buka jam 07.00 - 21.00 WIB.'
         }
     ];
 
@@ -276,29 +306,32 @@ document.addEventListener('DOMContentLoaded', () => {
 
         if (item) {
             // 1. Populate Text
-            document.title = `${item.name} - CariKos`;
-            document.getElementById('detail-breadcrumb').innerText = item.name;
+            document.title = `${item.name} - Marketplace`;
             document.getElementById('detail-title').innerText = item.name;
-            document.getElementById('detail-location').innerText = item.location;
             document.getElementById('detail-price').innerText = item.price;
             document.getElementById('detail-unit').innerText = item.priceUnit || '';
-            document.getElementById('detail-desc').innerText = item.desc;
+            document.getElementById('detail-location-text').innerText = item.location;
+            document.getElementById('detail-location-full').innerText = `Lokasi di ${item.location} (Perkiraan)`;
+            document.getElementById('detail-category').innerText = item.category;
 
-            const badge = document.getElementById('detail-badge');
-            badge.innerText = item.category;
-            // Set Badge Color
+            // Description with extra info
+            let extraDesc = "";
             if (type === 'Kost') {
-                badge.style.background = item.category === 'Putri' ? '#e84393' : item.category === 'Putra' ? '#0984e3' : '#636e72';
+                extraDesc = `\n\nFasilitas: ${item.facilities.join(', ')}\nSisa Kamar: ${item.sisa}`;
             } else {
-                badge.style.background = item.category === 'Makanan' ? '#e67e22' : '#27ae60';
+                extraDesc = `\n\nLayanan: ${item.facilities.join(', ')}\nPengiriman: ${item.delivery}`;
             }
+            document.getElementById('detail-desc').innerText = item.desc + extraDesc;
 
             // 2. Images
             const mainImg = document.getElementById('detail-main-img');
             const thumbContainer = document.getElementById('detail-thumbs');
+            thumbContainer.innerHTML = ''; // Clear prev
 
             // Set initial main image
-            mainImg.src = item.images[0];
+            if (item.images.length > 0) {
+                mainImg.src = item.images[0];
+            }
 
             // Generate Thumbnails
             item.images.forEach((imgSrc, index) => {
@@ -306,38 +339,26 @@ document.addEventListener('DOMContentLoaded', () => {
                 thumb.src = imgSrc;
                 if (index === 0) thumb.classList.add('active');
 
-                thumb.addEventListener('click', () => {
+                thumb.addEventListener('mouseenter', () => { // Hover change for desktop feeling
                     mainImg.src = imgSrc;
-                    // Update active state
-                    document.querySelectorAll('.thumb-grid img').forEach(img => img.classList.remove('active'));
+                    document.querySelectorAll('.fb-thumbnails img').forEach(img => img.classList.remove('active'));
+                    thumb.classList.add('active');
+                });
+
+                thumb.addEventListener('click', () => { // Click backup
+                    mainImg.src = imgSrc;
+                    document.querySelectorAll('.fb-thumbnails img').forEach(img => img.classList.remove('active'));
                     thumb.classList.add('active');
                 });
                 thumbContainer.appendChild(thumb);
             });
 
-            // 3. Status / Info Badge (Right of Price)
-            const statusBadgeContainer = document.getElementById('detail-status-badge');
-            if (type === 'Kost') {
-                statusBadgeContainer.innerHTML = `<span class="badge" style="background:var(--secondary-color); color:#333; font-weight:bold;">Sisa ${item.sisa} Kamar</span>`;
-            } else {
-                statusBadgeContainer.innerHTML = `<span class="badge" style="background:#dff9fb; color:#130f40;"><i class="fa-solid fa-truck"></i> ${item.delivery}</span>`;
-            }
-
-            // 4. Facilities
-            const facContainer = document.getElementById('detail-facilities');
-            item.facilities.forEach(fac => {
-                const div = document.createElement('div');
-                div.className = 'facility-item';
-                div.innerHTML = `<i class="fa-solid fa-check-circle" style="color:var(--primary-color)"></i> ${fac}`;
-                facContainer.appendChild(div);
-            });
-
-            // 5. Contact Button
-            const waLink = `https://wa.me/628123456789?text=Halo, saya tertarik dengan ${item.name}`; // Mock number
+            // 3. Contact Button
+            const waLink = `https://wa.me/628123456789?text=Halo, saya tertarik dengan ${item.name}`;
             document.getElementById('wa-button').href = waLink;
 
         } else {
-            document.querySelector('.detail-layout').innerHTML = '<h2 style="text-align:center; grid-column: 1/-1;">Data tidak ditemukan :(</h2>';
+            document.querySelector('.fb-container').innerHTML = '<h2 style="text-align:center; margin-top:50px; width:100%;">Data tidak ditemukan :(</h2>';
         }
     }
 

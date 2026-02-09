@@ -4,22 +4,21 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Detail - CariKos</title>
+    <title>Detail - CariKos Marketplace</title>
     <link rel="stylesheet" href="css/style.css">
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 </head>
 
-<body>
+<body class="fb-body">
 
-    <!-- Navbar -->
+    <!-- Navbar (Simplified for Marketplace feel) -->
     <nav class="navbar">
         <div class="container nav-container">
             <a href="index.html" class="logo">
-                <i class="fa-solid fa-house-chimney"></i> CariKos
+                <i class="fa-solid fa-arrow-left"></i> CariKos Marketplace
             </a>
             <div class="nav-links">
-                <a href="index.html" style="font-weight: 500;"><i class="fa-solid fa-arrow-left"></i> Kembali</a>
                 <button id="theme-toggle" class="theme-toggle" title="Ganti Mode">
                     <i class="fa-solid fa-moon"></i>
                 </button>
@@ -27,103 +26,108 @@
         </div>
     </nav>
 
-    <!-- Detail Content -->
-    <section class="section-padding bg-light">
-        <div class="container">
-
-            <!-- Breadcrumb -->
-            <div class="breadcrumb" style="margin-bottom: 1rem; color: var(--text-light); font-size: 0.9rem;">
-                <a href="index.html" style="color: var(--primary-color);">Beranda</a> &gt; <span
-                    id="detail-breadcrumb">Detail</span>
+    <!-- FB Marketplace Layout -->
+    <div class="fb-container">
+        <!-- LEFT: Image Gallery Stage -->
+        <div class="fb-gallery-stage">
+            <div class="main-image-wrapper">
+                <img id="detail-main-img" src="" alt="Main Image">
             </div>
+            <!-- Thumbnails Floating Bottom -->
+            <div class="fb-thumbnails" id="detail-thumbs">
+                <!-- Thumbs injected via JS -->
+            </div>
+        </div>
 
-            <div class="detail-layout">
-                <!-- Left Column: Gallery & Info -->
-                <div class="detail-main">
+        <!-- RIGHT: Info & Actions -->
+        <div class="fb-sidebar">
+            <div class="fb-content-wrapper">
 
-                    <!-- Gallery -->
-                    <div class="detail-gallery">
-                        <div class="main-image">
-                            <img id="detail-main-img" src="" alt="Main Image">
-                            <span class="tag" id="detail-badge">Kategori</span>
-                        </div>
-                        <div class="thumb-grid" id="detail-thumbs">
-                            <!-- Thumbnails injected here -->
-                        </div>
+                <!-- Title Block -->
+                <div class="fb-header">
+                    <h1 id="detail-title">Memuat Nama...</h1>
+                    <div class="fb-price-row">
+                        <h2 id="detail-price">Rp0</h2>
+                        <span id="detail-unit"></span>
                     </div>
-
-                    <!-- Header Info -->
-                    <div class="detail-header-card">
-                        <h1 id="detail-title">Nama Kost / UMKM</h1>
-                        <p class="location"><i class="fa-solid fa-location-dot"></i> <span id="detail-location">Alamat
-                                Lengkap...</span></p>
-
-                        <div class="detail-price-row">
-                            <div class="price-box">
-                                <h2 id="detail-price">Rp0</h2>
-                                <span id="detail-unit">/ bulan</span>
-                            </div>
-                            <!-- Status Badge for Kost -->
-                            <div id="detail-status-badge"></div>
-                        </div>
-                    </div>
-
-                    <!-- Description -->
-                    <div class="detail-section">
-                        <h3>Deskripsi</h3>
-                        <p id="detail-desc" style="line-height: 1.6; color: var(--text-main);">Muat deskripsi...</p>
-                    </div>
-
-                    <!-- Facilities / Specs -->
-                    <div class="detail-section">
-                        <h3>Fasilitas & Layanan</h3>
-                        <div class="facilities-grid" id="detail-facilities">
-                            <!-- Injected Items -->
-                        </div>
-                    </div>
-
-                    <!-- Google Maps Embed (Placeholder) -->
-                    <div class="detail-section">
-                        <h3>Lokasi</h3>
-                        <div class="map-placeholder">
-                            <p><i class="fa-solid fa-map"></i> Peta Lokasi</p>
-                            <a href="#" target="_blank" id="detail-map-link"
-                                style="color: var(--primary-color); text-decoration: underline;">Buka di Google Maps</a>
-                        </div>
-                    </div>
-
+                    <p class="fb-meta">
+                        Listed <span id="listed-time">baru saja</span> in <span
+                            id="detail-location-text">Lokasi..</span>
+                    </p>
                 </div>
 
-                <!-- Right Column: Sidebar Contact -->
-                <div class="detail-sidebar">
-                    <div class="contact-card sticky-sidebar">
-                        <h3>Hubungi Pemilik</h3>
-                        <p style="font-size: 0.9rem; margin-bottom: 1rem; color: var(--text-light);">Tertarik? Segera
-                            hubungi pemilik sebelum kehabisan!</p>
-
-                        <a href="#" id="wa-button" target="_blank" class="btn-block wa-btn">
-                            <i class="fa-brands fa-whatsapp"></i> Chat WhatsApp
-                        </a>
-
-                        <div class="safety-tips"
-                            style="margin-top: 1.5rem; padding: 1rem; background: rgba(255, 107, 107, 0.1); border-radius: var(--radius); font-size: 0.85rem;">
-                            <strong><i class="fa-solid fa-shield-halved"></i> Tips Aman:</strong>
-                            <p style="margin-top: 0.5rem; margin-bottom: 0;">Hindari transfer uang muka sebelum survei
-                                lokasi secara langsung.</p>
-                        </div>
+                <!-- Action Buttons -->
+                <div class="fb-actions">
+                    <a href="#" id="wa-button" target="_blank" class="btn-fb-primary">
+                        <i class="fa-brands fa-whatsapp"></i> Kirim Pesan
+                    </a>
+                    <div class="fb-secondary-actions">
+                        <button class="btn-fb-secondary"><i class="fa-solid fa-bookmark"></i> Simpan</button>
+                        <button class="btn-fb-secondary"><i class="fa-solid fa-share"></i> Bagikan</button>
                     </div>
+                </div>
+
+                <!-- Quick Message Box -->
+                <div class="fb-message-box">
+                    <p><i class="fa-brands fa-whatsapp" style="color:#25D366"></i> <strong>Kirim pesan ke
+                            pemilik</strong></p>
+                    <div class="chat-input-row">
+                        <input type="text" value="Halo, apakah ini masih ada?" readonly
+                            style="background: var(--bg-light); border:none; padding:10px; border-radius:8px; width:100%; color: var(--text-light);">
+                        <button class="btn-send-icon"><i class="fa-solid fa-paper-plane"></i></button>
+                    </div>
+                </div>
+
+                <hr class="fb-divider">
+
+                <!-- Details Section -->
+                <div class="fb-details">
+                    <h3>Detail</h3>
+                    <div class="detail-row">
+                        <span class="label">Kategori</span>
+                        <span class="value" id="detail-category">...</span>
+                    </div>
+                    <div class="detail-row">
+                        <span class="label">Kondisi</span>
+                        <span class="value">Terawat / Baru</span>
+                    </div>
+
+                    <h3 style="margin-top:1.5rem;">Deskripsi</h3>
+                    <p id="detail-desc" class="desc-text">
+                        Deskripsi lengkap akan muncul di sini...
+                    </p>
+                </div>
+
+                <hr class="fb-divider">
+
+                <!-- Map / Location -->
+                <div class="fb-map-section">
+                    <h3>Lokasi</h3>
+                    <p id="detail-location-full" style="font-size:0.9rem; color:var(--text-light); margin-bottom:10px;">
+                    </p>
+                    <div class="map-placeholder">
+                        <i class="fa-solid fa-map-location-dot"></i>
+                        <span>Peta Lokasi (Perkiraan)</span>
+                    </div>
+                </div>
+
+                <hr class="fb-divider">
+
+                <!-- Seller Info -->
+                <div class="fb-seller">
+                    <div class="seller-avatar">
+                        <i class="fa-solid fa-user"></i>
+                    </div>
+                    <div class="seller-info">
+                        <h4>Pemilik / Admin</h4>
+                        <p>Bergabung 2024</p>
+                    </div>
+                    <button class="btn-small-outline">Lihat Profil</button>
                 </div>
 
             </div>
         </div>
-    </section>
-
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="container">
-            <p>&copy; 2024 CariKos. All rights reserved.</p>
-        </div>
-    </footer>
+    </div>
 
     <script src="js/script.js"></script>
 </body>
