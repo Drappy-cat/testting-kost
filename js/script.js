@@ -154,4 +154,75 @@ document.addEventListener('DOMContentLoaded', () => {
             window.location.href = 'index.html';
         });
     }
+
+    // --- Add UMKM Page Logic ---
+    const umkmForm = document.getElementById('add-umkm-form');
+    if (umkmForm) {
+        const categoryCheckboxes = document.querySelectorAll('input[name="umkm-category"]');
+        const detailsSection = document.getElementById('umkm-details-section');
+
+        // Toggle Details Section based on selection
+        function checkCategories() {
+            let anyChecked = false;
+            categoryCheckboxes.forEach(cb => {
+                if (cb.checked) anyChecked = true;
+            });
+
+            if (anyChecked) {
+                if (!detailsSection.classList.contains('visible')) {
+                    detailsSection.classList.add('visible');
+                    // Optional: Smooth scroll to details
+                    detailsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
+                }
+            } else {
+                detailsSection.classList.remove('visible');
+            }
+        }
+
+        categoryCheckboxes.forEach(cb => {
+            cb.addEventListener('change', checkCategories);
+        });
+
+        // Image Preview (Reusing logic logic simplified)
+        const umkmImageInput = document.getElementById('umkm-images');
+        const umkmPreviewContainer = document.getElementById('umkm-image-preview');
+
+        if (umkmImageInput && umkmPreviewContainer) {
+            umkmImageInput.addEventListener('change', function () {
+                umkmPreviewContainer.innerHTML = '';
+                const files = this.files;
+                if (files) {
+                    for (let i = 0; i < files.length; i++) {
+                        const file = files[i];
+                        if (file.type.match('image.*')) {
+                            const reader = new FileReader();
+                            reader.onload = function (e) {
+                                const img = document.createElement('img');
+                                img.src = e.target.result;
+                                img.classList.add('preview-img');
+                                umkmPreviewContainer.appendChild(img);
+                            }
+                            reader.readAsDataURL(file);
+                        }
+                    }
+                }
+            });
+        }
+
+        // Form Submit
+        umkmForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            const name = document.getElementById('umkm-name').value;
+            const deliveryOption = document.querySelector('input[name="delivery-option"]:checked').value;
+
+            // Collect categories
+            const selectedCategories = [];
+            categoryCheckboxes.forEach(cb => {
+                if (cb.checked) selectedCategories.push(cb.value);
+            });
+
+            alert(`✅ Pendaftaran UMKM Berhasil!\n\nNama: ${name}\nKategori: ${selectedCategories.join(', ')}\nLayanan: ${deliveryOption}\n\nData Anda telah tersimpan.`);
+            window.location.href = 'index.html';
+        });
+    }
 });
