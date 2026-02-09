@@ -76,83 +76,10 @@
             </div>
 
             <div class="card-grid">
-                <!-- Card 1 -->
-                <div class="card">
-                    <div class="card-image">
-                        <span class="tag gold">Premium</span>
-                        <!-- Using a placeholder image generator for now -->
-                        <img src="https://placehold.co/400x300/e0e0e0/555?text=Kamar+1" alt="Kos Image">
-                        <div class="price-overlay">Rp2.000.000 / bulan</div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-tags">
-                            <span class="badge putri">Putri</span>
-                            <span class="rooms-left">Sisa 2 kamar</span>
-                        </div>
-                        <h3>Kos Alma Jetis</h3>
-                        <p class="location"><i class="fa-solid fa-location-dot"></i> Jetis, Yogyakarta</p>
-                        <div class="facilities">
-                            <span><i class="fa-solid fa-wifi"></i> WiFi</span>
-                            <span><i class="fa-solid fa-wind"></i> AC</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 2 -->
-                <div class="card">
-                    <div class="card-image">
-                        <img src="https://placehold.co/400x300/e0e0e0/555?text=Kamar+2" alt="Kos Image">
-                        <div class="price-overlay">Rp850.000 / bulan</div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-tags">
-                            <span class="badge putra">Putra</span>
-                        </div>
-                        <h3>Kos Murah Tipe 2</h3>
-                        <p class="location"><i class="fa-solid fa-location-dot"></i> Gamping, Sleman</p>
-                        <div class="facilities">
-                            <span><i class="fa-solid fa-bed"></i> Kasur</span>
-                            <span><i class="fa-solid fa-bath"></i> KM Dalam</span>
-                        </div>
-                    </div>
-                </div>
-
-                <!-- Card 3 -->
-                <div class="card">
-                    <div class="card-image">
-                        <!-- Placeholders -->
-                        <img src="https://placehold.co/400x300/e0e0e0/555?text=Kamar+3" alt="Kos Image">
-                        <div class="price-overlay">Rp4.050.000 / bulan</div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-tags">
-                            <span class="badge campur">Campur</span>
-                            <span class="rooms-left alert">Sisa 1 kamar</span>
-                        </div>
-                        <h3>Kost Bale Executive</h3>
-                        <p class="location"><i class="fa-solid fa-location-dot"></i> Mlati, Sleman</p>
-                        <div class="facilities">
-                            <span><i class="fa-solid fa-car"></i> Parkir</span>
-                            <span><i class="fa-solid fa-tv"></i> TV</span>
-                        </div>
-                    </div>
-                </div>
-                <!-- Card 4 -->
-                <div class="card">
-                    <div class="card-image">
-                        <img src="https://placehold.co/400x300/e0e0e0/555?text=Kamar+4" alt="Kos Image">
-                        <div class="price-overlay">Rp550.000 / bulan</div>
-                    </div>
-                    <div class="card-body">
-                        <div class="card-tags">
-                            <span class="badge putra">Putra</span>
-                        </div>
-                        <h3>Kost Inthobi Tipe VVIP</h3>
-                        <p class="location"><i class="fa-solid fa-location-dot"></i> Gamping, Sleman</p>
-                        <div class="facilities">
-                            <span><i class="fa-solid fa-fan"></i> Kipas</span>
-                        </div>
-                    </div>
+                <!-- Cards will be rendered via JS -->
+                <div class="card-skeleton"
+                    style="text-align:center; grid-column:1/-1; padding:2rem; color:var(--text-light);">
+                    <i class="fa-solid fa-spinner fa-spin"></i> Memuat Data...
                 </div>
             </div>
         </div>
@@ -188,61 +115,6 @@
         </div>
     </section>
 
-    <!-- Detail Modal (Popup) -->
-    <div id="detail-modal" class="modal-overlay">
-        <div class="modal-content">
-            <button class="modal-close" id="modal-close-btn">&times;</button>
-
-            <div class="modal-gallery">
-                <!-- Javascript will inject images here -->
-                <div class="gallery-track" id="modal-gallery-track">
-                    <img src="https://placehold.co/600x400" alt="Detail Image">
-                </div>
-                <div class="gallery-nav">
-                    <button id="prev-img"><i class="fa-solid fa-chevron-left"></i></button>
-                    <button id="next-img"><i class="fa-solid fa-chevron-right"></i></button>
-                </div>
-            </div>
-
-            <div class="modal-body">
-                <div class="modal-header-row">
-                    <div>
-                        <span class="badge" id="modal-badge">Putri</span>
-                        <h2 id="modal-title">Nama Kost / UMKM</h2>
-                        <p class="location" id="modal-location"><i class="fa-solid fa-location-dot"></i> Alamat
-                            Lengkap...</p>
-                    </div>
-                    <div class="modal-price">
-                        <h3 id="modal-price">Rp0</h3>
-                        <small id="modal-unit">per bulan</small>
-                    </div>
-                </div>
-
-                <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 1rem 0;">
-
-                <div class="modal-details">
-                    <h4>Ketersediaan / Layanan</h4>
-                    <div class="info-grid" id="modal-info-grid">
-                        <!-- Dynamic Info: Sisa Kamar, Luas, or Delivery Option -->
-                    </div>
-
-                    <h4 style="margin-top: 1.5rem;">Fasilitas / Kategori</h4>
-                    <div class="facilities-list" id="modal-facilities">
-                        <!-- Dynamic Chips -->
-                    </div>
-
-                    <h4 style="margin-top: 1.5rem;">Deskripsi</h4>
-                    <p id="modal-description" style="color: var(--text-light);">Deskripsi lengkap...</p>
-                </div>
-
-                <div class="modal-footer-action">
-                    <a href="#" id="modal-wa-btn" class="btn-block" target="_blank">
-                        <i class="fa-brands fa-whatsapp"></i> Hubungi Pemilik
-                    </a>
-                </div>
-            </div>
-        </div>
-    </div>
 
     <!-- Fitur Section (Based on User Requirements) -->
     <section id="fitur" class="features section-padding bg-light">

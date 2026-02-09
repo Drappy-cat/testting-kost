@@ -155,6 +155,62 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     }
 
+    // --- MOCK DATA FOR DEMO ---
+    const kostData = [
+        {
+            id: 1, type: 'Kost', category: 'Putri', name: 'Kost Alma Jetis', price: 'Rp2.000.000', priceUnit: '/ bulan',
+            location: 'Jetis, Yogyakarta', sisa: 2, total: 10,
+            images: ['https://roomme-v2.s3.amazonaws.com/bd044158-963d-4c3e-8c66-8840d8794301_L.jpg', 'https://roomme-v2.s3.amazonaws.com/9553765e-2f88-444a-af27-9950664d0a2d_L.jpg'],
+            facilities: ['WiFi', 'AC', 'Kloset Duduk', 'Parkir Motor'],
+            desc: 'Kost nyaman, aman, dan bersih. Lokasi strategis dekat kampus UGM.'
+        },
+        {
+            id: 2, type: 'Kost', category: 'Putra', name: 'Kost Murah Tipe 2', price: 'Rp850.000', priceUnit: '/ bulan',
+            location: 'Gamping, Sleman', sisa: 5, total: 15,
+            images: ['https://static.mamikos.com/uploads/cache/data/style/2021-09-24/o80J51iR-540x720.jpg'],
+            facilities: ['Kasur', 'Lemari', 'KM Dalam'],
+            desc: 'Kost murah meriah cocok untuk mahasiswa.'
+        },
+        {
+            id: 3, type: 'Kost', category: 'Campur', name: 'Kost Bale Executive', price: 'Rp4.050.000', priceUnit: '/ bulan',
+            location: 'Mlati, Sleman', sisa: 1, total: 5,
+            images: ['https://static.mamikos.com/uploads/cache/data/style/2023-11-09/4Xn28Z4p-540x720.jpg'],
+            facilities: ['TV', 'AC', 'Water Heater', 'Parkir Mobil'],
+            desc: 'Fasilitas lengkap serasa hotel.'
+        },
+        {
+            id: 4, type: 'Kost', category: 'Putra', name: 'Kost Inthobi Tipe VVIP', price: 'Rp550.000', priceUnit: '/ bulan',
+            location: 'Gamping, Sleman', sisa: 3, total: 8,
+            images: ['https://static.mamikos.com/uploads/cache/data/style/2022-07-28/a3j329z9-540x720.jpg'],
+            facilities: ['Kipas Angin', 'Kasur', 'Lemari'],
+            desc: 'Kost hemat budget dengan fasilitas standar yang memadai.'
+        }
+    ];
+
+    const umkmDATA = [
+        {
+            id: 101, type: 'UMKM', category: 'Makanan', name: 'Ayam Geprek Mas Budi', price: 'Rp15rb - 25rb', priceUnit: '',
+            location: '50m dari Kost Alma', delivery: 'Bisa Diantar',
+            images: ['https://assets.unileversolutions.com/recipes-v2/218401.jpg', 'https://www.masakapahariini.com/wp-content/uploads/2019/11/ayam-geprek-1.jpg'],
+            facilities: ['Nasi Ayam', 'Es Teh', 'Level Pedas'],
+            desc: 'Ayam geprek crispy dengan sambal bawang yang nendang. Gratis es teh untuk pembelian paket.'
+        },
+        {
+            id: 102, type: 'UMKM', category: 'Minuman', name: 'Kopi Kenangan Mantan', price: 'Rp10rb - 15rb', priceUnit: '',
+            location: 'Depan Gang', delivery: 'Ambil Sendiri',
+            images: ['https://asset.kompas.com/crops/O_KjJ_oE0U-A8GzQJ-A2OqM9J-0=/0x0:1000x667/750x500/data/photo/2020/06/17/5ee988d8b9d36.jpg'],
+            facilities: ['Kopi Susu', 'Thai Tea', 'Toast'],
+            desc: 'Teman nugas malam hari. Buka sampai jam 12 malam.'
+        },
+        {
+            id: 103, type: 'UMKM', category: 'Bahan Pokok', name: 'Toko Kelontong Bu Siti', price: 'Lengkap', priceUnit: '',
+            location: 'Sebelah Kost Putri', delivery: 'Ambil Sendiri',
+            images: ['https://asset.kompas.com/crops/Y5M1gk-u-Dqg2q_g0g2g0=/0x0:0x0/750x500/data/photo/2020/04/16/5e982c7e5b6c9.jpg'],
+            facilities: ['Beras', 'Telur', 'Minyak Goreng', 'Gas 3kg'],
+            desc: 'Menyediakan kebutuhan sehari-hari anak kost dengan harga terjangkau.'
+        }
+    ];
+
     // --- RENDER FUNCTIONS ---
     function renderCard(item) {
         // Different layout for Kost vs UMKM
