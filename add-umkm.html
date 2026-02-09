@@ -1,0 +1,139 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Daftar UMKM - CariKos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-store"></i> CariUMKM
+            </a>
+            <div class="nav-links">
+                <a href="index.html" class="btn-login"
+                    style="background: transparent; color: var(--text-main) !important; border: 1px solid var(--border-color);">Kembali</a>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Form Section -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="auth-card" style="max-width: 800px; margin: 0 auto; text-align: left;">
+                <div class="auth-header center-text">
+                    <h2>Daftar Mitra UMKM</h2>
+                    <p>Jual makanan, minuman, atau sembako di sekitar area kos.</p>
+                </div>
+
+                <form id="add-umkm-form">
+
+                    <!-- 1. Kategori Usaha (Wajib Centang Dulu) -->
+                    <div class="form-section">
+                        <h3><i class="fa-solid fa-list-check"></i> Kategori Usaha</h3>
+                        <p style="font-size: 0.9rem; margin-bottom: 1rem; color: var(--text-light);">Mohon centang
+                            produk yang Anda jual (Bisa lebih dari satu):</p>
+
+                        <div class="checkbox-group" style="flex-direction: column; gap: 0.5rem;">
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="umkm-category" value="Makanan">
+                                <span>🍱 Makanan (Nasi, Lauk, Snack)</span>
+                            </label>
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="umkm-category" value="Minuman">
+                                <span>🥤 Minuman (Jus, Kopi, Es)</span>
+                            </label>
+                            <label class="custom-checkbox">
+                                <input type="checkbox" name="umkm-category" value="Bahan Pokok">
+                                <span>🥚 Bahan Pokok (Telur, Beras, Minyak)</span>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 2. Detail Usaha (Hidden by default) -->
+                    <div id="umkm-details-section" class="hidden-section">
+
+                        <div class="form-section">
+                            <h3><i class="fa-solid fa-shop"></i> Informasi Usaha & Produk</h3>
+                            <div class="form-grid">
+                                <div class="form-group">
+                                    <label for="umkm-name">Nama Usaha / Warung</label>
+                                    <input type="text" id="umkm-name" placeholder="Contoh: Warung Makan Bu Tejo"
+                                        required>
+                                </div>
+                                <div class="form-group">
+                                    <label for="umkm-price-range">Range Harga (Rp)</label>
+                                    <input type="text" id="umkm-price-range" placeholder="Contoh: 10.000 - 25.000"
+                                        required>
+                                </div>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="umkm-images">Foto Menu / Produk</label>
+                                <input type="file" id="umkm-images" multiple accept="image/*">
+                                <div id="umkm-image-preview" class="preview-container"></div>
+                            </div>
+                        </div>
+
+                        <!-- 3. Opsi Pengiriman -->
+                        <div class="form-section">
+                            <h3><i class="fa-solid fa-truck-fast"></i> Opsi Pengiriman</h3>
+                            <div class="form-group">
+                                <label style="margin-bottom: 0.8rem; display: block;">Apakah pesanan bisa
+                                    diantar?</label>
+                                <div style="display: flex; gap: 1.5rem; flex-wrap: wrap;">
+                                    <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                        <input type="radio" name="delivery-option" value="Ambil Sendiri" checked>
+                                        <span>Ambil di Tempat (Pickup)</span>
+                                    </label>
+                                    <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                        <input type="radio" name="delivery-option" value="Diantar">
+                                        <span>Bisa Diantar (Delivery)</span>
+                                    </label>
+                                    <label style="display: flex; align-items: center; gap: 0.5rem; cursor: pointer;">
+                                        <input type="radio" name="delivery-option" value="Fleksibel">
+                                        <span>Keduanya</span>
+                                    </label>
+                                </div>
+                            </div>
+                        </div>
+
+                        <!-- 4. Lokasi & Kontak -->
+                        <div class="form-section">
+                            <h3><i class="fa-solid fa-map-location-dot"></i> Lokasi & Kontak</h3>
+                            <div class="form-group">
+                                <label for="umkm-address">Alamat Lengkap</label>
+                                <textarea id="umkm-address" rows="2" placeholder="Alamat usaha..." required
+                                    style="width: 100%; padding: 0.8rem; border-radius: var(--radius); border: 1px solid var(--border-color); background: var(--bg-body); color: var(--text-main); font-family: inherit;"></textarea>
+                            </div>
+                            <div class="form-group">
+                                <label for="umkm-whatsapp">Nomor WhatsApp (Untuk Pemesanan)</label>
+                                <div class="input-icon-group">
+                                    <span class="input-icon"><i class="fa-brands fa-whatsapp"></i></span>
+                                    <input type="tel" id="umkm-whatsapp" placeholder="Contoh: 08123456789" required
+                                        style="padding-left: 2.5rem;">
+                                </div>
+                            </div>
+                        </div>
+
+                        <button type="submit" class="btn-block"
+                            style="background-color: var(--secondary-color); color: #333;">Daftar UMKM Sekarang</button>
+                    </div> <!-- End of Hidden Section -->
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

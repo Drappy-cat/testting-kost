@@ -1,0 +1,235 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CariKos - Temukan Kos Impianmu</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <!-- Icon library (using a reliable CDN for free icons) -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="#" class="logo">
+                <i class="fa-solid fa-house-chimney"></i> CariKos
+            </a>
+            <div class="nav-links">
+                <a href="index.html#rekomendasi">Cari Kos</a>
+                <a href="add-kost.html" style="font-weight: 600; color: var(--primary-color);"><i
+                        class="fa-solid fa-plus-circle"></i> Pasang Iklan</a>
+                <button id="theme-toggle" class="theme-toggle" title="Ganti Mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+                <a href="login.html" class="btn-login">Masuk</a>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Hero Section -->
+    <header class="hero">
+        <div class="container hero-content">
+            <h1>Mau cari kos?</h1>
+            <p>Dapatkan infonya dan langsung sewa di CariKos.</p>
+
+            <div class="search-box">
+                <i class="fa-solid fa-magnifying-glass search-icon"></i>
+                <input type="text" placeholder="Masukan nama lokasi/area/alamat...">
+                <button class="btn-search">Cari</button>
+            </div>
+        </div>
+        <!-- Background decoration or illustration could go here -->
+    </header>
+
+    <!-- Promo / Hero Banner Helper -->
+    <section class="promo-banner container">
+        <div class="promo-card">
+            <div class="promo-text">
+                <h3>Fitur Survei Hari Ini</h3>
+                <p>Survei kos sekarang juga tanpa lama & drama.</p>
+                <button class="btn-outline">Coba Sekarang</button>
+            </div>
+            <!-- Illustration placeholder -->
+            <div class="promo-visual">
+                <i class="fa-solid fa-calendar-check"></i>
+            </div>
+        </div>
+    </section>
+
+    <!-- Rekomendasi Kos -->
+    <section id="rekomendasi" class="recommendations section-padding">
+        <div class="container">
+            <div class="section-header">
+                <h2>Rekomendasi kos di <span class="highlight-text">Semua Kota</span></h2>
+                <a href="#" class="view-all">Lihat semua</a>
+            </div>
+
+            <div class="card-grid">
+                <!-- Card 1 -->
+                <div class="card">
+                    <div class="card-image">
+                        <span class="tag gold">Premium</span>
+                        <!-- Using a placeholder image generator for now -->
+                        <img src="https://placehold.co/400x300/e0e0e0/555?text=Kamar+1" alt="Kos Image">
+                        <div class="price-overlay">Rp2.000.000 / bulan</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span class="badge putri">Putri</span>
+                            <span class="rooms-left">Sisa 2 kamar</span>
+                        </div>
+                        <h3>Kos Alma Jetis</h3>
+                        <p class="location"><i class="fa-solid fa-location-dot"></i> Jetis, Yogyakarta</p>
+                        <div class="facilities">
+                            <span><i class="fa-solid fa-wifi"></i> WiFi</span>
+                            <span><i class="fa-solid fa-wind"></i> AC</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 2 -->
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://placehold.co/400x300/e0e0e0/555?text=Kamar+2" alt="Kos Image">
+                        <div class="price-overlay">Rp850.000 / bulan</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span class="badge putra">Putra</span>
+                        </div>
+                        <h3>Kos Murah Tipe 2</h3>
+                        <p class="location"><i class="fa-solid fa-location-dot"></i> Gamping, Sleman</p>
+                        <div class="facilities">
+                            <span><i class="fa-solid fa-bed"></i> Kasur</span>
+                            <span><i class="fa-solid fa-bath"></i> KM Dalam</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Card 3 -->
+                <div class="card">
+                    <div class="card-image">
+                        <!-- Placeholders -->
+                        <img src="https://placehold.co/400x300/e0e0e0/555?text=Kamar+3" alt="Kos Image">
+                        <div class="price-overlay">Rp4.050.000 / bulan</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span class="badge campur">Campur</span>
+                            <span class="rooms-left alert">Sisa 1 kamar</span>
+                        </div>
+                        <h3>Kost Bale Executive</h3>
+                        <p class="location"><i class="fa-solid fa-location-dot"></i> Mlati, Sleman</p>
+                        <div class="facilities">
+                            <span><i class="fa-solid fa-car"></i> Parkir</span>
+                            <span><i class="fa-solid fa-tv"></i> TV</span>
+                        </div>
+                    </div>
+                </div>
+                <!-- Card 4 -->
+                <div class="card">
+                    <div class="card-image">
+                        <img src="https://placehold.co/400x300/e0e0e0/555?text=Kamar+4" alt="Kos Image">
+                        <div class="price-overlay">Rp550.000 / bulan</div>
+                    </div>
+                    <div class="card-body">
+                        <div class="card-tags">
+                            <span class="badge putra">Putra</span>
+                        </div>
+                        <h3>Kost Inthobi Tipe VVIP</h3>
+                        <p class="location"><i class="fa-solid fa-location-dot"></i> Gamping, Sleman</p>
+                        <div class="facilities">
+                            <span><i class="fa-solid fa-fan"></i> Kipas</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Fitur Section (Based on User Requirements) -->
+    <section id="fitur" class="features section-padding bg-light">
+        <div class="container">
+            <div class="section-header center-text">
+                <h2>Fitur Unggulan</h2>
+                <p>Solusi lengkap untuk Pengguna, Pemilik Kos, dan Admin.</p>
+            </div>
+
+            <div class="features-grid">
+                <!-- Group A: Pemilik Kos -->
+                <div class="feature-group">
+                    <div class="feature-icon owner">
+                        <i class="fa-solid fa-shop"></i>
+                    </div>
+                    <h3>Untuk Pemilik Kos (UMKM)</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Login sederhana (No HP/Username)</li>
+                        <li><i class="fa-solid fa-check"></i> Profil usaha lengkap</li>
+                        <li><i class="fa-solid fa-check"></i> Unggah & edit produk kos</li>
+                        <li><i class="fa-solid fa-check"></i> Kelola data sendiri</li>
+                        <li><i class="fa-solid fa-check"></i> Pantau peminat/pesanan</li>
+                    </ul>
+                </div>
+
+                <!-- Group B: Pencari Kos -->
+                <div class="feature-group">
+                    <div class="feature-icon user">
+                        <i class="fa-solid fa-users"></i>
+                    </div>
+                    <h3>Untuk Pencari Kos</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Lihat daftar kos & UMKM</li>
+                        <li><i class="fa-solid fa-check"></i> Pencarian sederhana & cepat</li>
+                        <li><i class="fa-solid fa-check"></i> Detail produk lengkap</li>
+                        <li><i class="fa-solid fa-check"></i> Tombol kontak langsung (WA)</li>
+                    </ul>
+                </div>
+
+                <!-- Group C: Admin -->
+                <div class="feature-group">
+                    <div class="feature-icon admin">
+                        <i class="fa-solid fa-user-shield"></i>
+                    </div>
+                    <h3>Panel Admin (BUMDes)</h3>
+                    <ul>
+                        <li><i class="fa-solid fa-check"></i> Manajemen akun</li>
+                        <li><i class="fa-solid fa-check"></i> Verifikasi data usaha</li>
+                        <li><i class="fa-solid fa-check"></i> Kelola kategori</li>
+                        <li><i class="fa-solid fa-check"></i> Monitoring aktivitas</li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container footer-content">
+            <div class="footer-brand">
+                <h4>CariKos</h4>
+                <p>Platform pencarian kos terbaik #1 di Kota Anda.</p>
+            </div>
+            <div class="footer-links">
+                <a href="#">Tentang Kami</a>
+                <a href="#">Syarat & Ketentuan</a>
+                <a href="#">Kebijakan Privasi</a>
+                <a href="#">Hubungi Kami</a>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            &copy; 2024 CariKos. All rights reserved.
+        </div>
+    </footer>
+
+    <script src="js/script.js"></script>
+</body>
+
+</html>

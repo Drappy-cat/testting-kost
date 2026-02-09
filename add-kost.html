@@ -1,0 +1,135 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Tambah Kost - CariKos</title>
+    <link rel="stylesheet" href="css/style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+
+<body>
+
+    <!-- Navbar -->
+    <nav class="navbar">
+        <div class="container nav-container">
+            <a href="index.html" class="logo">
+                <i class="fa-solid fa-house-chimney"></i> CariKos
+            </a>
+            <div class="nav-links">
+                <a href="index.html">Kembali ke Beranda</a>
+                <button id="theme-toggle" class="theme-toggle" title="Ganti Mode">
+                    <i class="fa-solid fa-moon"></i>
+                </button>
+            </div>
+            <div class="menu-toggle" id="mobile-menu">
+                <i class="fa-solid fa-bars"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Form Section -->
+    <section class="section-padding bg-light">
+        <div class="container">
+            <div class="auth-card" style="max-width: 800px; margin: 0 auto; text-align: left;">
+                <div class="auth-header center-text">
+                    <h2>Tambah Data Kost</h2>
+                    <p>Lengkapi formulir di bawah ini untuk mengiklankan kost Anda.</p>
+                </div>
+
+                <form id="add-kost-form">
+
+                    <!-- 1. Informasi Dasar -->
+                    <div class="form-section">
+                        <h3><i class="fa-solid fa-circle-info"></i> Informasi Dasar</h3>
+                        <div class="form-grid">
+                            <div class="form-group">
+                                <label for="kost-name">Nama Kost</label>
+                                <input type="text" id="kost-name" placeholder="Contoh: Kost Bahagia Tipe A" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="kost-price">Harga per Bulan (Rp)</label>
+                                <input type="number" id="kost-price" placeholder="Contoh: 1500000" required>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 2. Media Gambar -->
+                    <div class="form-section">
+                        <h3><i class="fa-solid fa-images"></i> Foto Kost</h3>
+                        <div class="form-group">
+                            <label for="kost-images">Upload Foto (Bisa lebih dari satu)</label>
+                            <input type="file" id="kost-images" multiple accept="image/*">
+                            <div id="image-preview-container" class="preview-container">
+                                <!-- Preview images will appear here -->
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- 3. Ketersediaan Kamar -->
+                    <div class="form-section">
+                        <h3><i class="fa-solid fa-door-open"></i> Ketersediaan Kamar</h3>
+                        <div class="form-grid-3">
+                            <div class="form-group">
+                                <label for="total-rooms">Total Kamar</label>
+                                <input type="number" id="total-rooms" min="1" placeholder="0" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="occupied-rooms">Kamar Terisi</label>
+                                <input type="number" id="occupied-rooms" min="0" placeholder="0" required>
+                            </div>
+                            <div class="form-group">
+                                <label for="empty-rooms">Sisa Kamar (Otomatis)</label>
+                                <input type="number" id="empty-rooms" placeholder="0" readonly
+                                    style="background-color: var(--border-color);">
+                            </div>
+                        </div>
+
+                        <!-- Monthly Reminder Checkbox -->
+                        <div class="form-group checkbox-group">
+                            <input type="checkbox" id="monthly-reminder" checked>
+                            <label for="monthly-reminder">
+                                <strong>Ingatkan saya tiap bulan?</strong><br>
+                                <small>Anda akan menerima notifikasi popup setiap bulan untuk mengonfirmasi ketersediaan
+                                    kamar (Kosong/Penuh).</small>
+                            </label>
+                        </div>
+                    </div>
+
+                    <!-- 4. Lokasi & Kontak -->
+                    <div class="form-section">
+                        <h3><i class="fa-solid fa-map-location-dot"></i> Lokasi & Kontak</h3>
+                        <div class="form-group">
+                            <label for="kost-address">Alamat Lengkap</label>
+                            <textarea id="kost-address" rows="3"
+                                placeholder="Nama jalan, RT/RW, Kelurahan, Kecamatan..." required
+                                style="width: 100%; padding: 0.8rem; border-radius: var(--radius); border: 1px solid var(--border-color); background: var(--bg-body); color: var(--text-main); font-family: inherit;"></textarea>
+                        </div>
+                        <div class="form-group">
+                            <label for="maps-link">Link Google Maps</label>
+                            <input type="url" id="maps-link" placeholder="https://maps.google.com/..." required>
+                        </div>
+                        <div class="form-group">
+                            <label for="whatsapp-number">Nomor WhatsApp (Aktif)</label>
+                            <div class="input-icon-group">
+                                <span class="input-icon"><i class="fa-brands fa-whatsapp"></i></span>
+                                <input type="tel" id="whatsapp-number" placeholder="Contoh: 08123456789" required
+                                    style="padding-left: 2.5rem;">
+                            </div>
+                        </div>
+                    </div>
+
+                    <button type="submit" class="btn-block">Simpan & Iklankan</button>
+
+                </form>
+            </div>
+        </div>
+    </section>
+
+    <!-- Script -->
+    <script src="js/script.js"></script>
+</body>
+
+</html>
