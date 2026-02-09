@@ -161,53 +161,81 @@ document.addEventListener('DOMContentLoaded', () => {
         const categoryCheckboxes = document.querySelectorAll('input[name="umkm-category"]');
         const detailsSection = document.getElementById('umkm-details-section');
 
-        // Toggle Details Section based on selection
+        // Upload Groups
+        const groupMakanan = document.getElementById('group-makanan');
+        const groupMinuman = document.getElementById('group-minuman');
+        const groupBahan = document.getElementById('group-bahan');
+
+        // Toggle Details Section & Upload Groups
         function checkCategories() {
             let anyChecked = false;
+
+            // Check individual categories to show/hide specific upload fields
+            let isMakanan = false;
+            let isMinuman = false;
+            let isBahan = false;
+
             categoryCheckboxes.forEach(cb => {
-                if (cb.checked) anyChecked = true;
+                if (cb.checked) {
+                    anyChecked = true;
+                    if (cb.value === 'Makanan') isMakanan = true;
+                    if (cb.value === 'Minuman') isMinuman = true;
+                    if (cb.value === 'Bahan Pokok') isBahan = true;
+                }
             });
 
+            // Toggle Main Section
             if (anyChecked) {
                 if (!detailsSection.classList.contains('visible')) {
                     detailsSection.classList.add('visible');
-                    // Optional: Smooth scroll to details
                     detailsSection.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
             } else {
                 detailsSection.classList.remove('visible');
             }
+
+            // Toggle Specific Upload Fields
+            if (groupMakanan) groupMakanan.style.display = isMakanan ? 'block' : 'none';
+            if (groupMinuman) groupMinuman.style.display = isMinuman ? 'block' : 'none';
+            if (groupBahan) groupBahan.style.display = isBahan ? 'block' : 'none';
         }
 
         categoryCheckboxes.forEach(cb => {
             cb.addEventListener('change', checkCategories);
         });
 
-        // Image Preview (Reusing logic logic simplified)
-        const umkmImageInput = document.getElementById('umkm-images');
-        const umkmPreviewContainer = document.getElementById('umkm-image-preview');
+        // Generic Image Preview Function
+        function handleImagePreview(inputId, containerId) {
+            const input = document.getElementById(inputId);
+            const container = document.getElementById(containerId);
 
-        if (umkmImageInput && umkmPreviewContainer) {
-            umkmImageInput.addEventListener('change', function () {
-                umkmPreviewContainer.innerHTML = '';
-                const files = this.files;
-                if (files) {
-                    for (let i = 0; i < files.length; i++) {
-                        const file = files[i];
-                        if (file.type.match('image.*')) {
-                            const reader = new FileReader();
-                            reader.onload = function (e) {
-                                const img = document.createElement('img');
-                                img.src = e.target.result;
-                                img.classList.add('preview-img');
-                                umkmPreviewContainer.appendChild(img);
+            if (input && container) {
+                input.addEventListener('change', function () {
+                    container.innerHTML = '';
+                    const files = this.files;
+                    if (files) {
+                        for (let i = 0; i < files.length; i++) {
+                            const file = files[i];
+                            if (file.type.match('image.*')) {
+                                const reader = new FileReader();
+                                reader.onload = function (e) {
+                                    const img = document.createElement('img');
+                                    img.src = e.target.result;
+                                    img.classList.add('preview-img');
+                                    container.appendChild(img);
+                                }
+                                reader.readAsDataURL(file);
                             }
-                            reader.readAsDataURL(file);
                         }
                     }
-                }
-            });
+                });
+            }
         }
+
+        // Initialize Previews
+        handleImagePreview('img-makanan', 'preview-makanan');
+        handleImagePreview('img-minuman', 'preview-minuman');
+        handleImagePreview('img-bahan', 'preview-bahan');
 
         // Form Submit
         umkmForm.addEventListener('submit', (e) => {
@@ -221,7 +249,7 @@ document.addEventListener('DOMContentLoaded', () => {
                 if (cb.checked) selectedCategories.push(cb.value);
             });
 
-            alert(`✅ Pendaftaran UMKM Berhasil!\n\nNama: ${name}\nKategori: ${selectedCategories.join(', ')}\nLayanan: ${deliveryOption}\n\nData Anda telah tersimpan.`);
+            alert(`✅ Pendaftaran UMKM Berhasil!\n\nNama: ${name}\nKategori: ${selectedCategories.join(', ')}\nLayanan: ${deliveryOption}\n\nData dan Foto Produk telah tersimpan.`);
             window.location.href = 'index.html';
         });
     }

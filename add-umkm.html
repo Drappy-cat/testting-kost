@@ -78,8 +78,35 @@
 
                             <div class="form-group">
                                 <label for="umkm-images">Foto Menu / Produk</label>
-                                <input type="file" id="umkm-images" multiple accept="image/*">
-                                <div id="umkm-image-preview" class="preview-container"></div>
+                                <p style="font-size: 0.85rem; color: var(--text-light); margin-bottom: 0.5rem;">Upload
+                                    foto sesuai kategori yang Anda pilih:</p>
+
+                                <!-- Upload Makanan -->
+                                <div id="group-makanan" class="upload-group"
+                                    style="display: none; margin-bottom: 1rem; border: 1px dashed var(--primary-color); padding: 1rem; border-radius: var(--radius); background: rgba(9, 132, 227, 0.05);">
+                                    <label for="img-makanan" style="color: var(--primary-color);"><i
+                                            class="fa-solid fa-utensils"></i> Foto Makanan</label>
+                                    <input type="file" id="img-makanan" multiple accept="image/*">
+                                    <div id="preview-makanan" class="preview-container"></div>
+                                </div>
+
+                                <!-- Upload Minuman -->
+                                <div id="group-minuman" class="upload-group"
+                                    style="display: none; margin-bottom: 1rem; border: 1px dashed var(--secondary-color); padding: 1rem; border-radius: var(--radius); background: rgba(241, 196, 15, 0.05);">
+                                    <label for="img-minuman" style="color: #d35400;"><i
+                                            class="fa-solid fa-glass-water"></i> Foto Minuman</label>
+                                    <input type="file" id="img-minuman" multiple accept="image/*">
+                                    <div id="preview-minuman" class="preview-container"></div>
+                                </div>
+
+                                <!-- Upload Bahan Pokok -->
+                                <div id="group-bahan" class="upload-group"
+                                    style="display: none; margin-bottom: 1rem; border: 1px dashed #27ae60; padding: 1rem; border-radius: var(--radius); background: rgba(39, 174, 96, 0.05);">
+                                    <label for="img-bahan" style="color: #27ae60;"><i class="fa-solid fa-wheat-awn"></i>
+                                        Foto Bahan Pokok</label>
+                                    <input type="file" id="img-bahan" multiple accept="image/*">
+                                    <div id="preview-bahan" class="preview-container"></div>
+                                </div>
                             </div>
                         </div>
 

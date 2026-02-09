@@ -158,6 +158,92 @@
         </div>
     </section>
 
+    <!-- Rekomendasi UMKM (New Section) -->
+    <section id="kuliner" class="recommendations section-padding" style="background: var(--bg-light);">
+        <div class="container">
+            <div class="section-header">
+                <h2>Kuliner & UMKM Sekitar</h2>
+                <a href="#" class="view-all">Lihat semua</a>
+            </div>
+
+            <div class="card-grid" id="umkm-container">
+                <!-- Cards will be rendered via JS -->
+                <!-- Placeholder for design verification if JS fails -->
+                <div class="card umkm-card">
+                    <div class="card-image">
+                        <span class="tag" style="background: #e67e22;">Makanan</span>
+                        <img src="https://placehold.co/400x300/orange/white?text=Ayam+Geprek" alt="UMKM Image">
+                        <div class="price-overlay">Rp15.000 - Rp25.000</div>
+                    </div>
+                    <div class="card-body">
+                        <h3>Ayam Geprek Mas Budi</h3>
+                        <p class="location"><i class="fa-solid fa-location-dot"></i> 50m dari Kost Alma</p>
+                        <div class="facilities">
+                            <span class="badge" style="background:#dff9fb; color:#130f40;"><i
+                                    class="fa-solid fa-motorcycle"></i> Bisa Diantar</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Detail Modal (Popup) -->
+    <div id="detail-modal" class="modal-overlay">
+        <div class="modal-content">
+            <button class="modal-close" id="modal-close-btn">&times;</button>
+
+            <div class="modal-gallery">
+                <!-- Javascript will inject images here -->
+                <div class="gallery-track" id="modal-gallery-track">
+                    <img src="https://placehold.co/600x400" alt="Detail Image">
+                </div>
+                <div class="gallery-nav">
+                    <button id="prev-img"><i class="fa-solid fa-chevron-left"></i></button>
+                    <button id="next-img"><i class="fa-solid fa-chevron-right"></i></button>
+                </div>
+            </div>
+
+            <div class="modal-body">
+                <div class="modal-header-row">
+                    <div>
+                        <span class="badge" id="modal-badge">Putri</span>
+                        <h2 id="modal-title">Nama Kost / UMKM</h2>
+                        <p class="location" id="modal-location"><i class="fa-solid fa-location-dot"></i> Alamat
+                            Lengkap...</p>
+                    </div>
+                    <div class="modal-price">
+                        <h3 id="modal-price">Rp0</h3>
+                        <small id="modal-unit">per bulan</small>
+                    </div>
+                </div>
+
+                <hr style="border: 0; border-top: 1px solid var(--border-color); margin: 1rem 0;">
+
+                <div class="modal-details">
+                    <h4>Ketersediaan / Layanan</h4>
+                    <div class="info-grid" id="modal-info-grid">
+                        <!-- Dynamic Info: Sisa Kamar, Luas, or Delivery Option -->
+                    </div>
+
+                    <h4 style="margin-top: 1.5rem;">Fasilitas / Kategori</h4>
+                    <div class="facilities-list" id="modal-facilities">
+                        <!-- Dynamic Chips -->
+                    </div>
+
+                    <h4 style="margin-top: 1.5rem;">Deskripsi</h4>
+                    <p id="modal-description" style="color: var(--text-light);">Deskripsi lengkap...</p>
+                </div>
+
+                <div class="modal-footer-action">
+                    <a href="#" id="modal-wa-btn" class="btn-block" target="_blank">
+                        <i class="fa-brands fa-whatsapp"></i> Hubungi Pemilik
+                    </a>
+                </div>
+            </div>
+        </div>
+    </div>
+
     <!-- Fitur Section (Based on User Requirements) -->
     <section id="fitur" class="features section-padding bg-light">
         <div class="container">
